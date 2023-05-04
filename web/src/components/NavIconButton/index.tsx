@@ -6,9 +6,10 @@ interface Button{
   src: string;
   alt: string;
   selected: string;
+  colorScheme: string | null;
 }
 
-export function NavIconButton({handleClick, src, alt, selected}:Button) {
+export function NavIconButton({handleClick, src, alt, selected, colorScheme}:Button) {
 
   return (
     <Button onClick={handleClick}>

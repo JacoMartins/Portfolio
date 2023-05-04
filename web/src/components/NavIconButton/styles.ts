@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface imgType{
+  src: () => string | string;
+}
+
 export const Button = styled.button`
   position: relative;
   display: flex;

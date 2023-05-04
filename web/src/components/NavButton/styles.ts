@@ -3,6 +3,7 @@ import styled from 'styled-components';
 interface LiProps {
   nav: string;
   name: string;
+  colorScheme: string | null;
 }
 
 const colors = {
@@ -16,6 +17,7 @@ export const Li = styled.li`
   margin-left: -0.75rem;
   list-style: none;
   transition: 0.15s ease-in;
+  cursor: pointer;
 
   &:hover{
     color: rgba(231, 36, 34, 0.75);
@@ -26,17 +28,28 @@ export const Li = styled.li`
   }
 
   a {
-    color: ${(props:LiProps)=> props.nav == props.name? colors.purple : colors.lightText};
+    font-family: 'Sora', 'Inter', 'Helvetica', 'Arial';
+    color: ${(props:LiProps)=>
+      props.nav === props.name?
+        props.colorScheme === 'light'?
+          'var(--purple)'
+          :
+          'var(--red)'
+      :
+        props.colorScheme === 'light'?
+          'var(--text-light)'
+          :
+          'var(--text-dark)'
+    };
     text-decoration: none;
     padding: 0.1875rem 0.75rem;
     border-radius: 1rem;
-    font-weight: ${(props:LiProps)=> props.nav == props.name? '600' : '400'};
+    font-weight: ${(props:LiProps)=> props.nav == props.name? '500' : '400'};
     transition: 0.125s ease-in;
     text-align: center;
     user-select: none;
 
     &:hover{
-      font-weight: 400;
       background: rgba(0,0,0,0.05); 
     }
 
