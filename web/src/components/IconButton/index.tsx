@@ -21,12 +21,12 @@ export function IconButton({ text, description, image, link, type, icon, colorSc
     return (
       <Container type={type} colorScheme={colorScheme} onClick={() => { window.open(link) }}>
         <div>
-          {(image === 'Email' && !icon) && <EnvelopeOpen color={colorScheme === 'light' ? '#8522E7' : '#E72422'} weight="light" size={60} />}
-          {(image === 'Phone' && !icon) && <Phone color={colorScheme === 'light' ? '#8522E7' : '#E72422'} weight="light" size={60} />}
-          {(image === 'Instagram' && !icon) && <InstagramLogo color={colorScheme === 'light' ? '#8522E7' : '#E72422'} weight="light" size={60} />}
-          {(image === 'Github' && !icon) && <GithubLogo color={colorScheme === 'light' ? '#8522E7' : '#E72422'} weight="light" size={60} />}
-          {(image === 'Cert' && !icon) && <CircleWavyCheck color={colorScheme === 'light' ? '#8522E7' : '#E72422'} weight="light" size={60} />}
-          {(image === 'Linkedin' && !icon) && <LinkedinLogo color={colorScheme === 'light' ? '#8522E7' : '#E72422'} weight="light" size={60} />}
+          {(image === 'Email' && !icon) && <EnvelopeOpen color='#8522E7' weight="light" size={60} />}
+          {(image === 'Phone' && !icon) && <Phone color='#8522E7' weight="light" size={60} />}
+          {(image === 'Instagram' && !icon) && <InstagramLogo color='#8522E7' weight="light" size={60} />}
+          {(image === 'Github' && !icon) && <GithubLogo color='#8522E7' weight="light" size={60} />}
+          {(image === 'Cert' && !icon) && <CircleWavyCheck color='#8522E7' weight="light" size={60} />}
+          {(image === 'Linkedin' && !icon) && <LinkedinLogo color='#8522E7' weight="light" size={60} />}
 
 
           <div>

@@ -17,7 +17,7 @@ import { IconButton } from '../../IconButton';
 
 import { frontEndSummary, backEndSummary, languagesSummary, UxUiSummary, contacts, projects, cert, prof } from './data';
 import { Logo } from '../../Header/styles';
-import { Bus } from 'phosphor-react';
+import { BookBookmark, Bus } from 'phosphor-react';
 
 interface PageType {
   name: string;
@@ -47,7 +47,7 @@ export function Page({ name, colorScheme }: PageType) {
 
               <div className="buttonContainer">
                 <a onClick={handleContactMeClick}><button>Entrar em contato</button></a>
-                <a onClick={handleContactMeClick}><button>Baixar currículo</button></a>
+                <a href='/src/assets/documents/CV - Jacó Martins.pdf'><button>Baixar currículo</button></a>
               </div>
             </div>
             <div className="Picture">
@@ -83,18 +83,18 @@ export function Page({ name, colorScheme }: PageType) {
             <SectionText>
               - Tenho conhecimentos em design de interfaces de usuário (UX/UI);
             </SectionText>
-            
+
             <SectionText>
               - Conhecimentos sólidos em Redes de Computadores;
             </SectionText>
-            
+
             <SectionText>
               - Sempre expandindo meus aprendizados;
             </SectionText>
-            
+
             <SectionText>
               - Inglês avançado, consigo escutar, falar, ler e escrever em inglês!
-              </SectionText>
+            </SectionText>
           </div>
         </AboutMeContainer>
       </AboutMeSection>
@@ -160,20 +160,20 @@ export function Page({ name, colorScheme }: PageType) {
         </SectionContainer>
       </Section>
 
-      <SubSection id='projectsbookyourself' height='40rem' bg={colorScheme === 'light' ? 'var(--back-light-green)' : 'var(--back-dark-green)'} colorScheme={colorScheme}>
+      <SubSection id='projectsbookyourself' height='40rem' bg={colorScheme === 'light' ? '#F0FFF4' : '#0c1411'} colorScheme={colorScheme}>
         <Container row="row">
           <aside>
-            <img src={BookYourSelfMobile} alt="Book Yourself Icone" />
+            <BookBookmark size='16rem' weight='regular' color="#38A169" />
             <div className='TextContainer'>
-              <SectionH1 color="var(--dark-green)">BookYourself</SectionH1>
-              <SectionH2 color={colorScheme === 'light' ? 'var(--text-light)' : 'var(--text-dark)'}>Um site de reservas que faz todo o trabalho de anotar, agendar e gerenciar as reservas para você!</SectionH2>
-              <Button color={colorScheme === 'light' ? 'var(--dark-green)' : 'var(--dark-green)'}>Saiba mais</Button>
+              <SectionH1 color="#38A169">BookYourself</SectionH1>
+              <SectionH2 color={colorScheme === 'light' ? 'var(--text-light)' : 'var(--text-dark)'}>O BookYourself é uma plataforma destinada a melhora, automatização e gerência de reservas de itens ou ambientes de uma instituição.</SectionH2>
+              <Button color={colorScheme === 'light' ? '#38A169' : '#2F855A'}>Saiba mais</Button>
             </div>
           </aside>
         </Container>
       </SubSection>
 
-      <SubSection id='projectsecos' height='40rem' bg={colorScheme === 'light' ? 'var(--back-light-blue)' : 'var(--back-dark-blue)'} colorScheme={colorScheme}>
+      <SubSection id='projectsecos' height='40rem' bg={colorScheme === 'light' ? '#e6faf3' : '#131414'} colorScheme={colorScheme}>
         <Container row="row-reverse">
           <aside>
             <Bus size='16rem' weight='regular' color="#338274" />

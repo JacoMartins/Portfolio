@@ -234,6 +234,11 @@ export const PresentContainer = styled.div`
   width: 100vw;
   height: 100%;
 
+  @media screen and (max-width: 720p) {
+    justify-content: left;
+    align-items: leftt ;
+  }
+
   .Container {
     display: flex;
     flex-wrap: wrap-reverse;
@@ -248,7 +253,7 @@ export const PresentContainer = styled.div`
     .buttonContainer {
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      justify-content: left;
       gap: 0.375rem;
       width: 100%;
 
@@ -258,12 +263,14 @@ export const PresentContainer = styled.div`
 
       @media screen and (max-width: 640px) {
         flex-direction: column;
+        justify-content: center;
       }
     }
 
     .TextContainer {
       display: flex;
       flex-direction: column;
+      max-width: 32rem;
       gap: 1.25rem;
       
       span {
