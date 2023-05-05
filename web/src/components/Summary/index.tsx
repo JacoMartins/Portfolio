@@ -35,11 +35,13 @@ export function Summary({ title, subTitle, summaries, colorScheme, type, childre
 
       </TitleContainer>
 
-      {type === '%list' && summaries?.map(
-        (sum) => <SummaryInfo key={sum.infoTitle} colorScheme={colorScheme} infoTitle={sum.infoTitle} value={sum.value}/>
-      )}
+      <div className='infoContainer'>
+        {type === '%list' && summaries?.map(
+          (sum) => <SummaryInfo key={sum.infoTitle} colorScheme={colorScheme} infoTitle={sum.infoTitle} value={sum.value} />
+        )}
 
-      {type !== '%list' && children}
+        {type !== '%list' && children}
+      </div>
 
     </SummaryBody>
   )

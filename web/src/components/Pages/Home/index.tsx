@@ -5,8 +5,6 @@ import {
 } from './styles';
 import axios from 'axios';
 
-import { SvgBlob } from 'react-svg-blob';
-import { cross as crossPattern } from 'react-svg-blob/dist/lib/patterns';
 import { Summary } from '../../Summary';
 
 import darkPicture from '../../../assets/images/jacomartins.png';
@@ -17,7 +15,7 @@ import { IconButton } from '../../IconButton';
 
 import { frontEndSummary, backEndSummary, languagesSummary, UxUiSummary, contacts, projects, cert, prof } from './data';
 import { Logo } from '../../Header/styles';
-import { Bus } from 'phosphor-react';
+import { BookBookmark, Bus } from 'phosphor-react';
 
 interface PageType {
   name: string;
@@ -47,13 +45,10 @@ export function Page({ name, colorScheme }: PageType) {
 
               <div className="buttonContainer">
                 <a onClick={handleContactMeClick}><button>Entrar em contato</button></a>
-                <a onClick={handleContactMeClick}><button>Baixar currículo</button></a>
+                <a href='/src/assets/documents/CV - Jacó Martins.pdf'><button>Baixar currículo</button></a>
               </div>
             </div>
-            <div className="Picture">
-              <img src={darkPicture} alt="Foto de Jacó" />
-              <img src={lightPicture} alt="Foto de Jacó" />
-            </div>
+            <div className="Picture" />
           </div>
 
         </PresentContainer>
@@ -83,18 +78,18 @@ export function Page({ name, colorScheme }: PageType) {
             <SectionText>
               - Tenho conhecimentos em design de interfaces de usuário (UX/UI);
             </SectionText>
-            
+
             <SectionText>
               - Conhecimentos sólidos em Redes de Computadores;
             </SectionText>
-            
+
             <SectionText>
               - Sempre expandindo meus aprendizados;
             </SectionText>
-            
+
             <SectionText>
               - Inglês avançado, consigo escutar, falar, ler e escrever em inglês!
-              </SectionText>
+            </SectionText>
           </div>
         </AboutMeContainer>
       </AboutMeSection>
@@ -107,9 +102,9 @@ export function Page({ name, colorScheme }: PageType) {
           </div>
 
           <div className='SummaryContainer'>
-            <Summary type="%list" title="Front end" subTitle='HTML5, CSS3, Javascript, React JS' summaries={frontEndSummary} colorScheme={colorScheme} />
-            <Summary type="%list" title="Back end" subTitle='Node JS e Python' summaries={backEndSummary} colorScheme={colorScheme} />
-            <Summary type="%list" title="Linguagens" subTitle='Língua Inglesa e Espanhola' summaries={languagesSummary} colorScheme={colorScheme} />
+            <Summary type="%list" title="Frontend" subTitle='HTML5, CSS3, Javascript, React JS' summaries={frontEndSummary} colorScheme={colorScheme} />
+            <Summary type="%list" title="Backend" subTitle='Node JS e Python' summaries={backEndSummary} colorScheme={colorScheme} />
+            <Summary type="%list" title="Idiomas" subTitle='Língua Inglesa e Espanhola' summaries={languagesSummary} colorScheme={colorScheme} />
             <Summary type="%list" title="UX/UI" subTitle='Design de Interfaces' summaries={UxUiSummary} colorScheme={colorScheme} />
           </div>
         </AbilitiesContainer>
@@ -118,30 +113,28 @@ export function Page({ name, colorScheme }: PageType) {
       <Section id="contacts" colorScheme={colorScheme}>
         <SectionContainer>
           <SectionTitle colorScheme={colorScheme}>Contato</SectionTitle>
-          <Container>
+          <div className='iconTextContainer'>
             {contacts.map((item) => {
               return (
-                <>
-                  <IconButton
-                    key={item.description}
-                    text={item.text}
-                    description={item.description}
-                    image={item.image}
-                    link={item.link}
-                    type={item.type}
-                    colorScheme={colorScheme}
-                  />
-                </>
+                <IconButton
+                  key={item.description}
+                  text={item.text}
+                  description={item.description}
+                  image={item.image}
+                  link={item.link}
+                  type={item.type}
+                  colorScheme={colorScheme}
+                />
               )
             })}
-          </Container>
+          </div>
         </SectionContainer>
       </Section>
 
       <Section id="projects" colorScheme={colorScheme}>
         <SectionContainer>
           <SectionTitle colorScheme={colorScheme}>Projetos</SectionTitle>
-          <Container>
+          <div className='iconTextContainer'>
             {projects.map((item) => {
               return (
                 <IconButton
@@ -156,24 +149,24 @@ export function Page({ name, colorScheme }: PageType) {
                 />
               )
             })}
-          </Container>
+          </div>
         </SectionContainer>
       </Section>
 
-      <SubSection id='projectsbookyourself' height='40rem' bg={colorScheme === 'light' ? 'var(--back-light-green)' : 'var(--back-dark-green)'} colorScheme={colorScheme}>
+      <SubSection id='projectsbookyourself' height='40rem' bg={colorScheme === 'light' ? '#F0FFF4' : '#0c1411'} colorScheme={colorScheme}>
         <Container row="row">
           <aside>
-            <img src={BookYourSelfMobile} alt="Book Yourself Icone" />
+            <BookBookmark size='16rem' weight='regular' color="#38A169" />
             <div className='TextContainer'>
-              <SectionH1 color="var(--dark-green)">BookYourself</SectionH1>
-              <SectionH2 color={colorScheme === 'light' ? 'var(--text-light)' : 'var(--text-dark)'}>Um site de reservas que faz todo o trabalho de anotar, agendar e gerenciar as reservas para você!</SectionH2>
-              <Button color={colorScheme === 'light' ? 'var(--dark-green)' : 'var(--dark-green)'}>Saiba mais</Button>
+              <SectionH1 color="#38A169">BookYourself</SectionH1>
+              <SectionH2 color={colorScheme === 'light' ? 'var(--text-light)' : 'var(--text-dark)'}>O BookYourself é uma plataforma destinada a melhora, automatização e gerência de reservas de itens ou ambientes de uma instituição.</SectionH2>
+              <Button color={colorScheme === 'light' ? '#38A169' : '#2F855A'}>Saiba mais</Button>
             </div>
           </aside>
         </Container>
       </SubSection>
 
-      <SubSection id='projectsecos' height='40rem' bg={colorScheme === 'light' ? 'var(--back-light-blue)' : 'var(--back-dark-blue)'} colorScheme={colorScheme}>
+      <SubSection id='projectsecos' height='40rem' bg={colorScheme === 'light' ? '#e6faf3' : '#131414'} colorScheme={colorScheme}>
         <Container row="row-reverse">
           <aside>
             <Bus size='16rem' weight='regular' color="#338274" />
@@ -186,7 +179,7 @@ export function Page({ name, colorScheme }: PageType) {
         </Container>
       </SubSection>
 
-      <Section id="portfolio" colorScheme={colorScheme}>
+      <AbilitiesSection id="portfolio" colorScheme={colorScheme}>
         <SectionContainer>
           <SectionTitle colorScheme={colorScheme}>Portfólio</SectionTitle>
           <AbilitiesContainer colorScheme={colorScheme}>
@@ -195,7 +188,6 @@ export function Page({ name, colorScheme }: PageType) {
 
                 {cert.map((item) => {
                   return (
-                    <>
                       <IconButton
                         key={item.description}
                         text={item.text}
@@ -205,7 +197,6 @@ export function Page({ name, colorScheme }: PageType) {
                         type={item.type}
                         colorScheme={colorScheme}
                       />
-                    </>
                   )
                 })}
 
@@ -233,7 +224,7 @@ export function Page({ name, colorScheme }: PageType) {
             </div>
           </AbilitiesContainer>
         </SectionContainer>
-      </Section>
+      </AbilitiesSection>
 
       <Footer colorScheme={colorScheme}>
         <SectionContainer colorScheme={colorScheme}>
