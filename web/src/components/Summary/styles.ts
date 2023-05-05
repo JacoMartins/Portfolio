@@ -12,12 +12,22 @@ interface Props {
 export const SummaryBody = styled.aside`
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
   justify-content: center;
 
   width: 19.5rem;
 
   @media screen and (max-width: 768px) {
     width: 100%;
+  }
+  
+  .infoContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -32,7 +42,7 @@ export const TitleContainer = styled.div`
 export const Title = styled.h2`
   font-weight: 550;
   font-size: 1.5rem;
-  line-height: 1.5rem;
+  line-height: auto;
   letter-spacing: -0.05em;
   font-family: 'Sora', 'Inter', 'Helvetica', 'Arial';
   color: ${(props: Props) =>
@@ -48,8 +58,7 @@ export const SubTitle = styled.p`
   };
   font-size: 0.875rem;
   font-family: 'Sora', 'Inter', 'Helvetica', 'Arial';
-  line-height: 1.125rem;
-  margin-top: 0.25rem;
+  line-height: auto;
 `;
 
 export const InfoBody = styled.div`
@@ -57,14 +66,18 @@ export const InfoBody = styled.div`
   justify-content: center;
   align-items: center;
 
-  margin-top: 0.5rem;
+  border: solid 1px rgba(255, 255, 255, 0.15);
+  border-radius: 0.5rem;
+  padding: 1rem;
   
-  width: 100%;
-  height: 4.625rem;
+  width: 80%;
+  height: auto;
 
   border-radius: 6px;
 
   transition: 0.25s;
+
+  box-shadow: 0px 6px 0.75rem rgba(0, 0, 0, 0.15);
 
   &:hover{
     transform: translate(0, -0.125rem) scale(102%);
@@ -80,18 +93,16 @@ export const InfoBody = styled.div`
 export const InfoContainer = styled.div`
   display: flex;
   width: 100%;
-  gap: 0.25rem;
-  border: solid 1px rgba(255, 255, 255, 0.15);
-  padding: 1rem;
+  gap: 0.375rem;
   justify-content: left;
   flex-direction: column;
 `;
 
 export const InfoTitle = styled.h3`
-  text-align:left;
+  text-align: left;
   font-size: 1rem;
   font-weight: 500;
-  line-height: 1.1875rem;
+  line-height: auto;
 `;
 
 export const InfoCore = styled.a`
@@ -99,12 +110,11 @@ export const InfoCore = styled.a`
   opacity: 0.6;
 
   font-size: 0.875rem;
-  margin-top: 0.375rem;
 `;
 
 export const AbilityPercent = styled.aside`
   width: 100%;
-  height: 0.25rem;
+  height: 0.375rem;
   border-radius: 1rem;
   background: ${(props: PercentProps) =>
     props.colorScheme === 'light' ?

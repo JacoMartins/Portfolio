@@ -5,8 +5,6 @@ import {
 } from './styles';
 import axios from 'axios';
 
-import { SvgBlob } from 'react-svg-blob';
-import { cross as crossPattern } from 'react-svg-blob/dist/lib/patterns';
 import { Summary } from '../../Summary';
 
 import darkPicture from '../../../assets/images/jacomartins.png';
@@ -50,10 +48,7 @@ export function Page({ name, colorScheme }: PageType) {
                 <a href='/src/assets/documents/CV - Jacó Martins.pdf'><button>Baixar currículo</button></a>
               </div>
             </div>
-            <div className="Picture">
-              <img src={darkPicture} alt="Foto de Jacó" />
-              <img src={lightPicture} alt="Foto de Jacó" />
-            </div>
+            <div className="Picture" />
           </div>
 
         </PresentContainer>
@@ -107,9 +102,9 @@ export function Page({ name, colorScheme }: PageType) {
           </div>
 
           <div className='SummaryContainer'>
-            <Summary type="%list" title="Front end" subTitle='HTML5, CSS3, Javascript, React JS' summaries={frontEndSummary} colorScheme={colorScheme} />
-            <Summary type="%list" title="Back end" subTitle='Node JS e Python' summaries={backEndSummary} colorScheme={colorScheme} />
-            <Summary type="%list" title="Linguagens" subTitle='Língua Inglesa e Espanhola' summaries={languagesSummary} colorScheme={colorScheme} />
+            <Summary type="%list" title="Frontend" subTitle='HTML5, CSS3, Javascript, React JS' summaries={frontEndSummary} colorScheme={colorScheme} />
+            <Summary type="%list" title="Backend" subTitle='Node JS e Python' summaries={backEndSummary} colorScheme={colorScheme} />
+            <Summary type="%list" title="Idiomas" subTitle='Língua Inglesa e Espanhola' summaries={languagesSummary} colorScheme={colorScheme} />
             <Summary type="%list" title="UX/UI" subTitle='Design de Interfaces' summaries={UxUiSummary} colorScheme={colorScheme} />
           </div>
         </AbilitiesContainer>
@@ -118,30 +113,28 @@ export function Page({ name, colorScheme }: PageType) {
       <Section id="contacts" colorScheme={colorScheme}>
         <SectionContainer>
           <SectionTitle colorScheme={colorScheme}>Contato</SectionTitle>
-          <Container>
+          <div className='iconTextContainer'>
             {contacts.map((item) => {
               return (
-                <>
-                  <IconButton
-                    key={item.description}
-                    text={item.text}
-                    description={item.description}
-                    image={item.image}
-                    link={item.link}
-                    type={item.type}
-                    colorScheme={colorScheme}
-                  />
-                </>
+                <IconButton
+                  key={item.description}
+                  text={item.text}
+                  description={item.description}
+                  image={item.image}
+                  link={item.link}
+                  type={item.type}
+                  colorScheme={colorScheme}
+                />
               )
             })}
-          </Container>
+          </div>
         </SectionContainer>
       </Section>
 
       <Section id="projects" colorScheme={colorScheme}>
         <SectionContainer>
           <SectionTitle colorScheme={colorScheme}>Projetos</SectionTitle>
-          <Container>
+          <div className='iconTextContainer'>
             {projects.map((item) => {
               return (
                 <IconButton
@@ -156,7 +149,7 @@ export function Page({ name, colorScheme }: PageType) {
                 />
               )
             })}
-          </Container>
+          </div>
         </SectionContainer>
       </Section>
 
@@ -186,7 +179,7 @@ export function Page({ name, colorScheme }: PageType) {
         </Container>
       </SubSection>
 
-      <Section id="portfolio" colorScheme={colorScheme}>
+      <AbilitiesSection id="portfolio" colorScheme={colorScheme}>
         <SectionContainer>
           <SectionTitle colorScheme={colorScheme}>Portfólio</SectionTitle>
           <AbilitiesContainer colorScheme={colorScheme}>
@@ -195,7 +188,6 @@ export function Page({ name, colorScheme }: PageType) {
 
                 {cert.map((item) => {
                   return (
-                    <>
                       <IconButton
                         key={item.description}
                         text={item.text}
@@ -205,7 +197,6 @@ export function Page({ name, colorScheme }: PageType) {
                         type={item.type}
                         colorScheme={colorScheme}
                       />
-                    </>
                   )
                 })}
 
@@ -233,7 +224,7 @@ export function Page({ name, colorScheme }: PageType) {
             </div>
           </AbilitiesContainer>
         </SectionContainer>
-      </Section>
+      </AbilitiesSection>
 
       <Footer colorScheme={colorScheme}>
         <SectionContainer colorScheme={colorScheme}>

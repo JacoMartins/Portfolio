@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import img1 from '../../../assets/images/pic15.png'
-import img2 from '../../../assets/images/pic0.png'
+import img1 from '../../../assets/images/pic1.png'
 
 interface Props {
   colorScheme?: string | null;
@@ -22,14 +21,17 @@ export const PageMain = styled.main`
 
 export const Section = styled.section`
   display: flex;
-  width: 100%;
+  width: auto;
   height: auto;
-  padding: 3rem 0;
-  border-top: solid 2px ${(props: Props) => props.colorScheme === 'light' ? 'rgba(0, 0, 0, 0.08)' : 'rgba(255, 255, 255, 0.08)'};
+  border-top: solid 2px ${(props: Props) =>
+    props.colorScheme === 'light' ?
+      'rgba(0, 0, 0, 0.08)' : 'rgba(255, 255, 255, 0.08)'
+  };
   background: ${(props: Props) =>
     props.colorScheme === 'light' ?
       'white' : 'var(--back-dark)'
   };
+  padding: 2rem;
 `;
 
 export const SubSection = styled.section`
@@ -49,6 +51,21 @@ export const SectionContainer = styled.div`
   padding: 0;
   width: 100%;
   height: 100%;
+
+  .iconTextContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+
+    @media screen and (max-width: 640px) {
+      flex-direction: column;
+      flex-wrap: nowrap;  
+    }
+  }
 
   .FooterMain {
     display: flex;
@@ -171,6 +188,7 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -230,13 +248,13 @@ export const PresentContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0;
-  padding: 2rem;
   width: 100vw;
   height: 100%;
 
-  @media screen and (max-width: 720p) {
+  @media screen and (max-width: 720px) {
     justify-content: left;
-    align-items: leftt ;
+    align-items: left;
+    padding: 2rem;
   }
 
   .Container {
@@ -259,6 +277,10 @@ export const PresentContainer = styled.div`
 
       button {
         width: 100%;
+      }
+
+      @media screen and (max-width: 870px) {
+        justify-content: center;
       }
 
       @media screen and (max-width: 640px) {
@@ -368,8 +390,11 @@ export const PresentContainer = styled.div`
 `;
 
 export const AboutMeSection = styled.section`
-  display: block;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
   height: auto;
   padding: 2rem 0;
   border-top: solid 2px ${(props: Props) =>
@@ -380,6 +405,10 @@ export const AboutMeSection = styled.section`
     props.colorScheme === 'light' ?
       'white' : 'var(--back-dark)'
   };
+
+  @media screen and (max-width: 1260px) {
+    padding: 2rem;
+  }
 `;
 
 export const AboutMeContainer = styled.div`
@@ -388,11 +417,12 @@ export const AboutMeContainer = styled.div`
   align-items: center;
   margin: 0;
   padding: 0;
+  max-width: 75rem;
   width: 100%;
   height: 100%;
 
   .TextContainer{
-    width: 22.5rem;
+    width: 100%;
 
     h1{
       line-height: 3rem;
@@ -475,6 +505,7 @@ export const AbilitiesContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
     width: 100%;
 
     aside{
@@ -482,18 +513,11 @@ export const AbilitiesContainer = styled.div`
     }
 
     @media screen and (min-width: 56.25rem) {
-      aside + aside {
-        margin-left: 4.5rem;
-        margin-top: 0;
-      }
+      
     }
 
     @media screen and (max-width: 40rem) {
-      flex-direction: column;
-      aside + aside {
-        margin-top: 2rem;
-        margin-left: 0;
-      }
+      
     }
   }
 `

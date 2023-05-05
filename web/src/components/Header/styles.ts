@@ -50,12 +50,12 @@ export const Content = styled.div`
   height: 100%;
   width: 100%;
   max-width: 75rem;
+
+  @media screen and (max-width: 1260px) {
+    padding: 0 2rem;
+  }
   
   margin: 0 0;
-
-  @media screen and (max-width: 45rem) {
-    width: calc(100% - ${HeaderSidePadding}rem);
-  }
 `;
 
 export const Logo = styled.h2`

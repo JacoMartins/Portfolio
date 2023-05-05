@@ -65,7 +65,7 @@ export const languagesSummary = [
 
 export const UxUiSummary = [
   {
-    infoTitle: '',
+    infoTitle: 'Engenharia de Interfaces - Experiente',
     value: '100%'
   }
 ];
@@ -122,18 +122,42 @@ export const projects = [
 
 export const cert = [
   {
-    text: 'Programação para internet com Javascript',
-    description: 'Digital Innovation One',
+    text: 'AWS Academy Cloud Foundation',
+    description: 'Amazon Web Services',
     image: 'Cert',
-    link: 'https://hermes.digitalinnovation.one/certificates/BE4616C3.pdf',
+    link: 'https://drive.google.com/file/d/1waOATK8kVy3zBX8xibXEONhijwNkypun/view?usp=share_link',
     type: 'portfolio'
   },
 
   {
-    text: 'Sintaxe Básica em Javascript',
-    description: 'Digital Innovation One',
+    text: 'AWS Educate Getting Started with Storage',
+    description: 'Amazon Web Services',
     image: 'Cert',
     link: 'https://hermes.digitalinnovation.one/certificates/7CCB2F4A.pdf',
+    type: 'portfolio'
+  },
+
+  {
+    text: 'Trilha NodeJS - Ignite',
+    description: 'Rocketseat',
+    image: 'Cert',
+    link: 'https://drive.google.com/file/d/1T0RHzt5VrEdyCZLRTe2rw-uzO0_zBVzZ/view?usp=sharing',
+    type: 'portfolio'
+  },
+
+  {
+    text: 'Trilha ReactJS - Ignite',
+    description: 'Rocketseat',
+    image: 'Cert',
+    link: 'https://drive.google.com/file/d/1lFhrmssiHOq-GvUPKedHAvm_gaokvfG7/view?usp=sharing',
+    type: 'portfolio'
+  },
+
+  {
+    text: 'EF SET Certificate - 65/100 (C1 Advanced)',
+    description: 'EF Standard English Test (EF SET) ',
+    image: 'Cert',
+    link: 'https://drive.google.com/file/d/1waf5tXnlwm4zILvJNKV-HZ6rqkJL1CWM/view?usp=sharing',
     type: 'portfolio'
   },
 ]
@@ -148,7 +172,7 @@ export const prof = [
   },
 
   {
-    text: 'Linked In',
+    text: 'LinkedIn',
     description: 'Jacó Martins',
     image: 'Linkedin',
     link: 'https://www.linkedin.com/in/jac%C3%B3-martins-2a9622224/',

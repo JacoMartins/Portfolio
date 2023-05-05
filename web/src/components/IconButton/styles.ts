@@ -10,7 +10,7 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: ${(props:Props) => props.type === 'contact' ? '19rem' : '23rem'};
+  max-width: 19rem;
   height: 4.24rem;
   background: transparent;
   outline: 0;
@@ -21,7 +21,7 @@ export const Container = styled.div`
   transition: 0.15s ease-out;
 
   @media screen and (max-width: 30.3125rem) {
-    width: auto;
+    width: 100%;
   }
 
   .TitleContainer + &{
@@ -50,7 +50,7 @@ export const Container = styled.div`
     };
 
     @media screen and (max-width: 30.3125rem) {
-      width: ${(props:Props) => props.type === 'contact' ? '22rem' : '18.5rem'};
+      width: 100%;
     }
 
     div {
