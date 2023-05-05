@@ -3,19 +3,16 @@ import {
   PresentSection, PresentContainer, PageMain, AboutMeSection, AboutMeContainer, AbilitiesSection, SectionTitle, SectionText, AbilitiesContainer, ProjectsSection, ProjectsContainer, Section, SectionContainer, Container, SubSection, SectionH1, ColoredText, SectionH2, Button, Footer
 
 } from './styles';
-import axios from 'axios';
 
 import { Summary } from '../../Summary';
 
-import darkPicture from '../../../assets/images/jacomartins.png';
-import lightPicture from '../../../assets/images/jacomartins.png';
-import BookYourSelfMobile from '../../../assets/images/BookYourselfMobile.svg';
-import ECOSIcon from '../../../assets/images/ecosIcon.svg';
 import { IconButton } from '../../IconButton';
 
 import { frontEndSummary, backEndSummary, languagesSummary, UxUiSummary, contacts, projects, cert, prof } from './data';
 import { Logo } from '../../Header/styles';
 import { BookBookmark, Bus } from 'phosphor-react';
+
+import curriculo from '../../../assets/documents/CV - Jacó Martins.pdf'
 
 interface PageType {
   name: string;
@@ -45,7 +42,7 @@ export function Page({ name, colorScheme }: PageType) {
 
               <div className="buttonContainer">
                 <a onClick={handleContactMeClick}><button>Entrar em contato</button></a>
-                <a href='/src/assets/documents/CV - Jacó Martins.pdf'><button>Baixar currículo</button></a>
+                <a href={curriculo}><button>Baixar currículo</button></a>
               </div>
             </div>
             <div className="Picture" />
