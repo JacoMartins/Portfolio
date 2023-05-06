@@ -320,6 +320,14 @@ export const PresentContainer = styled.div`
           font-weight: 500;
           padding-left: 0.25rem;
         }
+
+        @media screen and (max-width: 720px) {
+          font-size: 2.25rem;
+          
+          span {
+            font-size: 2.25rem;
+          }
+        }
       }
   
       h2 {
