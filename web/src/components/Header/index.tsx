@@ -62,7 +62,6 @@ interface Button {
 }
 
 export function Header({ changeNav, nav, toggleColor, colorScheme }: HeaderProps) {
-
   const [navPlaces, setNavPlaces] = useState<Section[]>(data.sections);
   const [headerPosition, setHeaderPosition] = useState('relative');
 
@@ -75,7 +74,6 @@ export function Header({ changeNav, nav, toggleColor, colorScheme }: HeaderProps
       <Content>
         <Logo colorScheme={colorScheme}>jacó<span>.dev</span></Logo>
         <Nav colorScheme={colorScheme}>
-
           <ul>
             <NavIconButton colorScheme={colorScheme} src={NavCloseIcon} alt={"Show"} selected="none" handleClick={() => {
               document.querySelectorAll('ul')[0].className = '';

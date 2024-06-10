@@ -7,7 +7,7 @@ import { Summary } from '../../Summary';
 
 import { IconButton } from '../../IconButton';
 
-import { frontEndSummary, backEndSummary, languagesSummary, UxUiSummary, contacts, projects, cert, prof } from './data';
+import { frontEndSummary, backEndSummary, languagesSummary, UxUiSummary, contacts, cert, prof, projects } from './data';
 import { Logo } from '../../Header/styles';
 import { BookBookmark, Bus } from 'phosphor-react';
 
@@ -19,11 +19,20 @@ interface PageType {
   colorScheme: string | null;
 }
 
-export function Page({ name, colorScheme }: PageType) {
-  function handleContactMeClick() {
-    window.scrollTo(0, document.getElementById('contacts')!.offsetTop - (document.querySelectorAll('header')[0].offsetHeight))
-  }
+export function scrollToSection(sectionId: string, headerId: string) {
+  const sectionElement = document.getElementById(sectionId);
+  const headerElement = document.getElementById(headerId);
 
+  if (sectionElement) {
+    const headerHeight = headerElement ? headerElement.offsetHeight : 0;
+    window.scrollTo(0, sectionElement.offsetTop - headerHeight);
+  } else {
+    console.error(`Section with ID "${sectionId}" not found.`);
+  }
+}
+
+
+export function Page({ name, colorScheme }: PageType) {
   return (
     <PageMain>
       <PresentSection id="home" colorScheme={colorScheme}>
@@ -35,13 +44,13 @@ export function Page({ name, colorScheme }: PageType) {
 
               <div className="textTextContainer">
                 <h2>
-                  Software Engineer
+                  Programmer and Computer Analyst
                 </h2>
                 <span>Fullstack Developer | Javascript | NodeJS | ReactJS | NextJS | PHP | Laravel | Python | Django | Linux</span>
               </div>
 
               <div className="buttonContainer">
-                <a onClick={handleContactMeClick}><button>Entrar em contato</button></a>
+                <a onClick={() => scrollToSection("contacts", "header")}><button>Entrar em contato</button></a>
                 <a href={curriculo}><button>Baixar currículo</button></a>
               </div>
             </div>
@@ -140,7 +149,6 @@ export function Page({ name, colorScheme }: PageType) {
                   description={item.description}
                   image={item.image}
                   icon={item.icon}
-                  link={item.link}
                   type={item.type}
                   colorScheme={colorScheme}
                 />
@@ -149,58 +157,6 @@ export function Page({ name, colorScheme }: PageType) {
           </div>
         </SectionContainer>
       </Section>
-
-      <SubSection id='moovooca' height='40rem' bg={colorScheme === 'light' ? '#e6faf3' : '#131414'} colorScheme={colorScheme}>
-        <Container row="row-reverse">
-          <aside>
-            <Bus size='16rem' weight='regular' color="#338274" />
-            <div className='TextContainer'>
-              <SectionH1 color='#338274'>Moovooca</SectionH1>
-              <SectionH2 color={colorScheme === 'light' ? 'var(--text-light)' : 'var(--text-dark)'}>O Moovooca é uma tentativa de projeto inovador destinado a auxiliar os alunos da UFC a encontrarem a linha ideal de ônibus. Com a ambição de oferecer uma solução eficiente e confiável, o Moovooca visa funcionar consistentemente na maior parte dos momentos, proporcionando aos usuários uma experiência de transporte fluida e sem contratempos.</SectionH2>
-              <Button color='#338274'>Saiba mais sobre em github.com</Button>
-            </div>
-          </aside>
-        </Container>
-      </SubSection>
-
-      <SubSection id='port.me' height='40rem' bg={colorScheme === 'light' ? '#D8B9FF' : '#0c1411'} colorScheme={colorScheme}>
-        <Container row="row">
-          <aside>
-            <img src={portmelogo} alt="Logomarca do Port.me" />
-            <div className='TextContainer'>
-              <SectionH1 color="#8F5CFF">port.me</SectionH1>
-              <SectionH2 color={colorScheme === 'light' ? 'var(--text-light)' : 'var(--text-dark)'}>O BookYourself é uma plataforma destinada a melhora, automatização e gerência de reservas de itens ou ambientes de uma instituição.</SectionH2>
-              <Button color={colorScheme === 'light' ? '#8F5CFF' : '#8F5CFF'}>Saiba mais em github.com</Button>
-            </div>
-          </aside>
-        </Container>
-      </SubSection>
-
-      <SubSection id='moovooca' height='40rem' bg={colorScheme === 'light' ? '#F0FFF4' : '#0c1411'} colorScheme={colorScheme}>
-        <Container row="row">
-          <aside>
-            <Bus size='16rem' weight='regular' color="#38A169" />
-            <div className='TextContainer'>
-              <SectionH1 color="#38A169">Moovooca</SectionH1>
-              <SectionH2 color={colorScheme === 'light' ? 'var(--text-light)' : 'var(--text-dark)'}></SectionH2>
-              <Button color={colorScheme === 'light' ? '#38A169' : '#2F855A'}>Saiba mais em github.com</Button>
-            </div>
-          </aside>
-        </Container>
-      </SubSection>
-
-      <SubSection id='bookyourself' height='40rem' bg={colorScheme === 'light' ? '#F0FFF4' : '#0c1411'} colorScheme={colorScheme}>
-        <Container row="row">
-          <aside>
-            <BookBookmark size='16rem' weight='regular' color="#38A169" />
-            <div className='TextContainer'>
-              <SectionH1 color="#38A169">BookYourself</SectionH1>
-              <SectionH2 color={colorScheme === 'light' ? 'var(--text-light)' : 'var(--text-dark)'}>O BookYourself é uma plataforma destinada a melhora, automatização e gerência de reservas de itens ou ambientes de uma instituição.</SectionH2>
-              <Button color={colorScheme === 'light' ? '#38A169' : '#2F855A'}>Saiba mais em github.com</Button>
-            </div>
-          </aside>
-        </Container>
-      </SubSection>
 
       <AbilitiesSection id="portfolio" colorScheme={colorScheme}>
         <SectionContainer>

@@ -1,6 +1,6 @@
-import { BookBookmark, Bus } from 'phosphor-react';
-import bookYourselfIcon from '../../../assets/images/BookYourself.svg';
-import ecosIcon from '../../../assets/images/ecosLetter.svg';
+import { BookBookmark, Bus } from "phosphor-react";
+import eclipseLogo from "../../../assets/images/eclipseLogo.svg";
+import portmeLogo from "../../../assets/images/portme40x.svg";
 
 export const frontEndSummary = [
   {
@@ -101,24 +101,6 @@ export const contacts = [
   }
 ]
 
-export const projects = [
-  {
-    text: 'BookYourself',
-    description: 'Um site de reservas para escolas.',
-    image: bookYourselfIcon,
-    icon: <BookBookmark size={48} weight='regular' color='#2F855A' />,
-    link: '',
-    type: 'projects'
-  },
-  {
-    text: 'Moovooca - Fullstack',
-    description: 'Encontre o ônibus perfeito para chegar até a UFC.',
-    image: ecosIcon,
-    icon: <Bus size={48} weight='regular' color='#338274' />,
-    link: '',
-    type: 'projects'
-  },
-]
 
 export const cert = [
   {
@@ -178,4 +160,31 @@ export const prof = [
     link: 'https://www.linkedin.com/in/jac%C3%B3-martins-2a9622224/',
     type: 'portfolio'
   },
+]
+
+export const projects = [
+  {
+    text: 'Moovooca',
+    description: 'Encontre o ônibus perfeito para chegar até a UFC.',
+    icon: <Bus size={48} weight='regular' color='#338274' />,
+    type: 'projects'
+  },
+  {
+    text: 'BookYourself',
+    description: 'Um site de reservas para escolas.',
+    icon: <BookBookmark size={48} weight='regular' color='#94956B' />,
+    type: 'projects'
+  },
+  {
+    text: 'Ecos',
+    description: 'Simule um sistema operacional em um site com JavaScript.',
+    image: eclipseLogo,
+    type: 'projects'
+  },
+  {
+    text: 'Port.me',
+    description: 'Port.me: Crie, Gerencie e Conecte-se!',
+    image: portmeLogo,
+    type: 'projects'
+  }
 ]

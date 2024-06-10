@@ -5,7 +5,7 @@ interface Props {
   colorScheme: string | null;
 }
 
-export const Container = styled.div`
+export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -24,7 +24,7 @@ export const Container = styled.div`
     width: 100%;
   }
 
-  .TitleContainer + &{
+  .TitleContainer + & {
     margin-top: 1rem;
   }
 

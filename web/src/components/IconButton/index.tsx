@@ -1,4 +1,4 @@
-import { Container } from './styles';
+import { ButtonContainer } from './styles';
 import BookYourselfIcon from '../../assets/images/BookYourself.svg';
 import arrowIcon from '../../assets/images/arrow.svg';
 
@@ -8,9 +8,9 @@ import { ReactNode } from 'react';
 interface IconButtonProps {
   text: string;
   description: string;
-  image: string;
+  image?: string;
   icon?: ReactNode;
-  link: string;
+  link?: string;
   type: string;
   colorScheme: string | null;
 }
@@ -19,7 +19,7 @@ export function IconButton({ text, description, image, link, type, icon, colorSc
 
   if (type === 'contact' || type === 'portfolio') {
     return (
-      <Container type={type} colorScheme={colorScheme} onClick={() => { window.open(link) }}>
+      <ButtonContainer type={type} colorScheme={colorScheme} onClick={() => { window.open(link) }}>
         <div>
           {(image === 'Email' && !icon) && <EnvelopeOpen color='#8522E7' weight="light" size={60} />}
           {(image === 'Phone' && !icon) && <Phone color='#8522E7' weight="light" size={60} />}
@@ -37,11 +37,11 @@ export function IconButton({ text, description, image, link, type, icon, colorSc
 
           {icon && icon}
         </div>
-      </Container>
+      </ButtonContainer>
     )
   } else {
     return(
-      <Container type={type} colorScheme={colorScheme} onClick={() => { window.open(link) }}>
+      <ButtonContainer type={type} colorScheme={colorScheme} onClick={() => { window.open(link) }}>
         <div>
           {!icon && <img src={image}/>}
 
@@ -52,7 +52,7 @@ export function IconButton({ text, description, image, link, type, icon, colorSc
           </div>
           <CaretRight size={16} weight='regular' color='rgba(0, 0, 0, 0.25)' />
         </div>
-      </Container>
+      </ButtonContainer>
     )
   }
 
