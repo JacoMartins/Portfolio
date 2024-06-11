@@ -40,7 +40,7 @@ export function Page({ name, colorScheme }: PageType) {
 
           <div className="Container">
             <div className="TextContainer">
-              <h1>Sou <span>Jacó Martins</span></h1>
+              <h1>Prazer, <span>Jacó Martins</span></h1>
 
               <div className="textTextContainer">
                 <h2>
