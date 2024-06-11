@@ -44,9 +44,9 @@ export function Page({ name, colorScheme }: PageType) {
 
               <div className="textTextContainer">
                 <h2>
-                  Programmer and Computer Analyst
+                  Software Engineer
                 </h2>
-                <span>Fullstack Developer | Javascript | NodeJS | ReactJS | NextJS | PHP | Laravel | Python | Django | Linux</span>
+                <span>Software Engineer | Javascript | NodeJS | ReactJS | NextJS | PHP | Laravel | Python | Django | Linux</span>
               </div>
 
               <div className="buttonContainer">

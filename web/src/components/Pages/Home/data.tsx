@@ -86,19 +86,12 @@ export const contacts = [
     type: 'contact'
   },
   {
-    text: 'Telefone',
+    text: 'Whatsapp',
     description: '(85) 9 9418-6689',
     image: 'Phone',
     link: 'tel:(85) 9 9418-6689',
     type: 'contact'
   },
-  {
-    text: 'Email',
-    description: 'jaco.contato@gmail.com',
-    image: 'Email',
-    link: 'mailto: jaco.contato@gmail.com',
-    type: 'contact'
-  }
 ]
 
 
