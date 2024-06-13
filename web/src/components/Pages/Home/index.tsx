@@ -68,7 +68,7 @@ export function Page({ name, colorScheme }: PageType) {
             <SectionTitle colorScheme={colorScheme}>Sobre mim</SectionTitle>
 
             <SectionText colorScheme={colorScheme}>
-              Sou um jovem de 17 anos, brasileiro, natural de Fortaleza capital cearense, atualmente cursando o quinto semestre do Curso Técnico em Redes de Computadores na Escola Estadual de Ensino Profissionalizante Leonel de Moura Brizola.
+              Sou um jovem de 18 anos, brasileiro, natural de Fortaleza capital cearense, atualmente cursando o quinto semestre do Curso Técnico em Redes de Computadores na Escola Estadual de Ensino Profissionalizante Leonel de Moura Brizola.
             </SectionText>
 
             <br></br>
