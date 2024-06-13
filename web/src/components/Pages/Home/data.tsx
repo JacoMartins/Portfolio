@@ -1,4 +1,4 @@
-import { BookBookmark, Bus } from "phosphor-react";
+import { BookBookmark, Bus, WhatsappLogo } from "phosphor-react";
 import eclipseLogo from "../../../assets/images/eclipseLogo.svg";
 import portmeLogo from "../../../assets/images/portme40x.svg";
 
@@ -88,7 +88,7 @@ export const contacts = [
   {
     text: 'Whatsapp',
     description: '(85) 9 9418-6689',
-    image: 'Phone',
+    icon: WhatsappLogo,
     link: 'tel:(85) 9 9418-6689',
     type: 'contact'
   },
