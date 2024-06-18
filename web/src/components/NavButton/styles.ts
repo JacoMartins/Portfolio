@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface LiProps {
-  nav: string;
+  navFocus: string;
   name: string;
   colorScheme: string | null;
 }
@@ -29,22 +29,22 @@ export const Li = styled.li`
 
   a {
     font-family: 'Sora', 'Inter', 'Helvetica', 'Arial';
-    color: ${(props:LiProps)=>
-      props.nav === props.name?
-        props.colorScheme === 'light'?
-          'var(--purple)'
-          :
-          'var(--red)'
+    color: ${(props: LiProps) =>
+    props.navFocus === props.name ?
+      props.colorScheme === 'light' ?
+        'var(--purple)'
+        :
+        'var(--red)'
       :
-        props.colorScheme === 'light'?
-          'var(--text-light)'
-          :
-          'var(--text-dark)'
-    };
+      props.colorScheme === 'light' ?
+        'var(--text-light)'
+        :
+        'var(--text-dark)'
+  };
     text-decoration: none;
     padding: 0.1875rem 0.75rem;
     border-radius: 1rem;
-    font-weight: ${(props:LiProps)=> props.nav == props.name? '500' : '400'};
+    font-weight: ${(props: LiProps) => props.navFocus == props.name ? '500' : '400'};
     transition: 0.125s ease-in;
     text-align: center;
     user-select: none;

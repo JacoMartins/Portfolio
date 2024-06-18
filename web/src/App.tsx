@@ -3,32 +3,81 @@ import { Header } from './components/Header'
 import { Page } from './components/Pages/Home';
 import { GlobalStyle } from './global'
 
-function App() {
-  const [ nav, setNav ] = useState('home');
-  const [colorScheme, setColorScheme] = useState<string | null>(localStorage.getItem('colorScheme') === null? 'light' : localStorage.getItem('colorScheme'));
+export type Page = 'home' | 'projects';
+export type Parts = 'home' | 'aboutMe' | 'habilities' | 'contacts' | 'projects' | 'portfolio';
 
-  function handleToggleColorScheme(){
-    if(colorScheme == 'light') {
-      localStorage.setItem("colorScheme", "dark");
-      setColorScheme(localStorage.getItem('colorScheme'));
-      console.log(colorScheme);
+const body = {
+  pages: [
+    {
+      id: "home",
+      title: "Início",
+    },
+    {
+      id: "skills",
+      title: "Habilidades",
+    },
+    {
+      id: "projects",
+      title: "Projetos"
+    },
+    {
+      id: "portfolio",
+      title: "Portfólio"
+    }
+  ],
+  sections: [
+    {
+      id: "home",
+      title: "Início",
+    },
+    {
+      id: "aboutMe",
+      title: "Sobre mim",
+    },
+    {
+      id: "skills",
+      title: "Habilidades",
+    },
+    {
+      id: "contacts",
+      title: "Contatos",
+    },
+    {
+      id: "projects",
+      title: "Projetos",
+    },
+    {
+      id: "portfolio",
+      title: "Portfólio",
+    }
+  ],
+};
+
+function App() {
+  const [language, setLanguage] = useState(localStorage.getItem('colorScheme') ? 'light' : localStorage.getItem('colorScheme'));
+  const [page, setPage] = useState<Page>('home');	
+  const [navFocus, setNavFocus] = useState<Parts>('home');
+  const [curriculo, setCurriculo] = useState('gdriveurl');
+
+  function handleToggleLanguage() {
+    if (language == 'light') {
+      localStorage.setItem("Language", "dark");
+      setLanguage(localStorage.getItem('Language'));
     } else {
-      localStorage.setItem("colorScheme", "light");
-      setColorScheme(localStorage.getItem('colorScheme'));
-      console.log(colorScheme);
+      localStorage.setItem("Language", "light");
+      setLanguage(localStorage.getItem('Language'));
     }
   }
 
-  function handleChangeNav(name:string){
-    setNav(name);
-    
+  function handleChangeNavFocus(userFocus: Parts) {
+    setNavFocus(userFocus);
   }
 
   return (
     <>
-      <Header changeNav={handleChangeNav} nav={nav} toggleColor={handleToggleColorScheme} colorScheme={colorScheme} />
-      <Page name="main" colorScheme={colorScheme}/>
-      <GlobalStyle colorScheme={colorScheme} />
+      <Header changeNavFocus={handleChangeNavFocus} page={page} navFocus={navFocus} handleToggleLanguage={handleToggleLanguage} language={language} />
+      <Page name="main" language='english' />
+      <GlobalStyle />
     </>
   )
 }

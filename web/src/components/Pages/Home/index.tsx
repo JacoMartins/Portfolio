@@ -1,27 +1,15 @@
-import React, { useState, useEffect, ReactNode } from 'react';
-import {
-  PresentSection, PresentContainer, PageMain, AboutMeSection, AboutMeContainer, AbilitiesSection, SectionTitle, SectionText, AbilitiesContainer, ProjectsSection, ProjectsContainer, Section, SectionContainer, Container, SubSection, SectionH1, ColoredText, SectionH2, Button, Footer
-} from './styles';
-
-import { Summary } from '../../Summary';
-
-import { IconButton } from '../../IconButton';
-
-import { frontEndSummary, backEndSummary, languagesSummary, UxUiSummary, contacts, cert, prof, projects } from './data';
-import { Logo } from '../../Header/styles';
-import { BookBookmark, Bus } from 'phosphor-react';
-
-import curriculo from '../../../assets/documents/CV - Jacó Martins.pdf'
-import portmelogo from '../../../assets/images/portme40x.svg'
+import { PageMain, PresentSection, PresentContainer, AboutMeSection } from "../../../globalStyles";
+import languageStore from "../../../stores/languageStore";
 
 interface PageType {
   name: string;
-  colorScheme: string | null;
+  language: "english" | "portuguese";
 }
 
 export function scrollToSection(sectionId: string, headerId: string) {
   const sectionElement = document.getElementById(sectionId);
   const headerElement = document.getElementById(headerId);
+  const resumeURL = "https://drive.google.com/file/d/1f-smA8Yg8ClGKkS8lYdId5FQ4518LAba/view?usp=sharing"
 
   if (sectionElement) {
     const headerHeight = headerElement ? headerElement.offsetHeight : 0;
@@ -31,27 +19,35 @@ export function scrollToSection(sectionId: string, headerId: string) {
   }
 }
 
-
-export function Page({ name, colorScheme }: PageType) {
+export function Page({ language }: PageType) {
   return (
     <PageMain>
-      <PresentSection id="home" colorScheme={colorScheme}>
-        <PresentContainer colorScheme={colorScheme}>
-
+      <PresentSection id="home">
+        <PresentContainer>
           <div className="Container">
             <div className="TextContainer">
-              <h1>Prazer, <span>Jacó Martins</span></h1>
+              <h1>{languageStore[language].presentingSection.welcome} <span>Jacó Martins</span></h1>
 
               <div className="textTextContainer">
                 <h2>
-                  Software Engineer
+                  {languageStore[language].title}
                 </h2>
-                <span>Software Engineer | Javascript | NodeJS | ReactJS | NextJS | PHP | Laravel | Python | Django | Linux</span>
+                <span>
+                  {languageStore[language].presentingSection.description}
+                </span>
               </div>
 
               <div className="buttonContainer">
-                <a onClick={() => scrollToSection("contacts", "header")}><button>Entrar em contato</button></a>
-                <a href={curriculo}><button>Baixar currículo</button></a>
+                <a onClick={() => scrollToSection("contacts", "header")}>
+                  <button>
+                    {languageStore[language].presentingSection.contactMe}
+                  </button>
+                </a>
+                <a href={resumeURL}>
+                  <button>
+                    {languageStore[language].presentingSection.downloadResume}
+                  </button>
+                </a>
               </div>
             </div>
             <div className="Picture" />
@@ -61,64 +57,48 @@ export function Page({ name, colorScheme }: PageType) {
       </PresentSection>
 
 
-      <AboutMeSection id="aboutMe" colorScheme={colorScheme}>
-        <AboutMeContainer colorScheme={colorScheme}>
+      <AboutMeSection id="aboutMe">
+        <AboutMeContainer>
           <div className='TextContainer'>
-
-            <SectionTitle colorScheme={colorScheme}>Sobre mim</SectionTitle>
-
-            <SectionText colorScheme={colorScheme}>
-              Sou um jovem de 17 anos, brasileiro, natural de Fortaleza capital cearense, atualmente cursando o quinto semestre do Curso Técnico em Redes de Computadores na Escola Estadual de Ensino Profissionalizante Leonel de Moura Brizola.
+            <SectionTitle>{languageStore[language].aboutMeSection.title}</SectionTitle>
+            <SectionText>
+              {languageStore[language].aboutMeSection.description}
             </SectionText>
 
             <br></br>
 
-            <SectionText>
-              - Desenvolvedor Fullstack;
-            </SectionText>
-
-            <SectionText>
-              - Programo em PHP, JavaScript e Python;
-            </SectionText>
-
-            <SectionText>
-              - Tenho conhecimentos em design de interfaces de usuário (UX/UI);
-            </SectionText>
-
-            <SectionText>
-              - Conhecimentos sólidos em Redes de Computadores;
-            </SectionText>
-
-            <SectionText>
-              - Sempre expandindo meus aprendizados;
-            </SectionText>
-
-            <SectionText>
-              - Inglês avançado, consigo escutar, falar, ler e escrever em inglês!
-            </SectionText>
+            <div className='SkillsContainer'>
+              {languageStore[language].aboutMeSection.skills.map((item) => {
+                return (
+                  <li key={item}>
+                    {item}
+                  </li>
+                )
+              })}
+            </div>
           </div>
         </AboutMeContainer>
       </AboutMeSection>
 
 
-      <AbilitiesSection id="habilities" colorScheme={colorScheme}>
-        <AbilitiesContainer colorScheme={colorScheme}>
+      <AbilitiesSection id="habilities">
+        <AbilitiesContainer>
           <div className='TextContainer'>
-            <SectionTitle colorScheme={colorScheme}>Habilidades</SectionTitle>
+            <SectionTitle>Habilidades</SectionTitle>
           </div>
 
           <div className='SummaryContainer'>
-            <Summary type="%list" title="Frontend" subTitle='HTML5, CSS3, Javascript, React JS' summaries={frontEndSummary} colorScheme={colorScheme} />
-            <Summary type="%list" title="Backend" subTitle='Node JS e Python' summaries={backEndSummary} colorScheme={colorScheme} />
-            <Summary type="%list" title="Idiomas" subTitle='Língua Inglesa e Espanhola' summaries={languagesSummary} colorScheme={colorScheme} />
-            <Summary type="%list" title="UX/UI" subTitle='Design de Interfaces' summaries={UxUiSummary} colorScheme={colorScheme} />
+            <Summary type="%list" title="Frontend" subTitle='HTML5, CSS3, Javascript, React JS' summaries={frontEndSummary} />
+            <Summary type="%list" title="Backend" subTitle='Node JS e Python' summaries={backEndSummary} />
+            <Summary type="%list" title="Idiomas" subTitle='Língua Inglesa e Espanhola' summaries={languagesSummary} />
+            <Summary type="%list" title="UX/UI" subTitle='Design de Interfaces' summaries={UxUiSummary} />
           </div>
         </AbilitiesContainer>
       </AbilitiesSection>
 
-      <Section id="contacts" colorScheme={colorScheme}>
+      <Section id="contacts">
         <SectionContainer>
-          <SectionTitle colorScheme={colorScheme}>Contato</SectionTitle>
+          <SectionTitle>Contato</SectionTitle>
           <div className='iconTextContainer'>
             {contacts.map((item) => {
               return (
@@ -129,7 +109,7 @@ export function Page({ name, colorScheme }: PageType) {
                   image={item.image}
                   link={item.link}
                   type={item.type}
-                  colorScheme={colorScheme}
+
                 />
               )
             })}
@@ -137,11 +117,11 @@ export function Page({ name, colorScheme }: PageType) {
         </SectionContainer>
       </Section>
 
-      <Section id="projects" colorScheme={colorScheme}>
+      <Section id="projects">
         <SectionContainer>
-          <SectionTitle colorScheme={colorScheme}>Projetos</SectionTitle>
+          <SectionTitle>Projetos</SectionTitle>
           <div className='iconTextContainer'>
-            {projects.map((item) => {
+            {ProjectsInformations.map((item) => {
               return (
                 <IconButton
                   key={item.description}
@@ -150,7 +130,7 @@ export function Page({ name, colorScheme }: PageType) {
                   image={item.image}
                   icon={item.icon}
                   type={item.type}
-                  colorScheme={colorScheme}
+
                 />
               )
             })}
@@ -158,12 +138,12 @@ export function Page({ name, colorScheme }: PageType) {
         </SectionContainer>
       </Section>
 
-      <AbilitiesSection id="portfolio" colorScheme={colorScheme}>
+      <AbilitiesSection id="portfolio">
         <SectionContainer>
-          <SectionTitle colorScheme={colorScheme}>Portfólio</SectionTitle>
-          <AbilitiesContainer colorScheme={colorScheme}>
+          <SectionTitle>Portfólio</SectionTitle>
+          <AbilitiesContainer>
             <div className='SummaryContainer'>
-              <Summary title="Licenças e certificados" subTitle="Meus certificados/certificações" type="Button" colorScheme={colorScheme}>
+              <Summary title="Licenças e certificados" subTitle="Meus certificados/certificações" type="Button">
 
                 {cert.map((item) => {
                   return (
@@ -174,16 +154,15 @@ export function Page({ name, colorScheme }: PageType) {
                       image={item.image}
                       link={item.link}
                       type={item.type}
-                      colorScheme={colorScheme}
+
                     />
                   )
                 })}
 
               </Summary>
 
-              <Summary title="Github e LinkedIn" subTitle="Veja aqui os códigos feitos por mim" type="Button" colorScheme={colorScheme}>
-
-                {prof.map((item) => {
+              <Summary title="Github e LinkedIn" subTitle="Veja aqui os códigos feitos por mim" type="Button">
+                {ProfessionalInformations.map((item) => {
                   return (
                     <>
                       <IconButton
@@ -193,7 +172,7 @@ export function Page({ name, colorScheme }: PageType) {
                         image={item.image}
                         link={item.link}
                         type={item.type}
-                        colorScheme={colorScheme}
+
                       />
                     </>
                   )
@@ -205,24 +184,24 @@ export function Page({ name, colorScheme }: PageType) {
         </SectionContainer>
       </AbilitiesSection>
 
-      <Footer colorScheme={colorScheme}>
-        <SectionContainer colorScheme={colorScheme}>
+      <Footer>
+        <SectionContainer>
 
           <div className='FooterMain'>
             <div className='LogoContainer'>
-              <Logo colorScheme={colorScheme}>
+              <Logo>
                 jaco<span>.dev</span>
               </Logo>
 
-              <SectionText opacity='0.5' colorScheme={colorScheme}>Meu Portfólio</SectionText>
+              <SectionText opacity='0.5'>Meu Portfólio</SectionText>
             </div>
 
             <div className='FooterContent'>
-              <a href="#home"><SectionText colorScheme={colorScheme}>Início</SectionText></a>
-              <a href="#aboutMe"><SectionText colorScheme={colorScheme}>Sobre mim</SectionText></a>
-              <a href="#habilities"><SectionText colorScheme={colorScheme}>Habilidades</SectionText></a>
-              <a href="#contacts"><SectionText colorScheme={colorScheme}>Contatos</SectionText></a>
-              <a href="#portfolio"><SectionText colorScheme={colorScheme}>Portfólio</SectionText></a>
+              <a href="#home"><SectionText>Início</SectionText></a>
+              <a href="#aboutMe"><SectionText>Sobre mim</SectionText></a>
+              <a href="#habilities"><SectionText>Habilidades</SectionText></a>
+              <a href="#contacts"><SectionText>Contatos</SectionText></a>
+              <a href="#portfolio"><SectionText>Portfólio</SectionText></a>
             </div>
           </div>
 

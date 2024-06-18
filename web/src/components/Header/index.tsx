@@ -1,52 +1,20 @@
 import { Container, Content, Nav, Logo } from "./styles";
-import logo from '../../assets/images/logo.svg';
 import NavShowIcon from '../../assets/images/navShowIcon.svg';
 import NavCloseIcon from '../../assets/images/close.svg';
 import NavLightIcon from '../../assets/images/light.svg';
 import NavDarkIcon from '../../assets/images/moon.svg';
 import NavBrazilIcon from '../../assets/images/hexa.svg';
-import axios from 'axios';
 
-import { MouseEventHandler, useEffect, useState } from "react";
+import { useState } from "react";
 import { NavButton } from "../NavButton";
 import { NavIconButton } from "../NavIconButton";
-import { WindowsLogo } from "phosphor-react";
-
-const data = {
-  sections: [
-    {
-      displayName: "Início",
-      realName: "home"
-    },
-
-    {
-      displayName: "Sobre mim",
-      realName: "aboutMe"
-    },
-    {
-      displayName: "Habilidades",
-      realName: "habilities"
-    },
-    {
-      displayName: "Contatos",
-      realName: "contacts"
-    },
-    {
-      displayName: "Projetos",
-      realName: "projects"
-    },
-    {
-      displayName: "Portfólio",
-      realName: "portfolio"
-    }
-  ],
-};
+import { Parts } from "../../App";
 
 interface HeaderProps {
-  changeNav: (name: string) => void;
   nav: string;
   toggleColor: () => void;
   colorScheme: string | null;
+  changeNavFocus: (userFocus: Parts) => void;
 }
 
 interface Section {
@@ -54,14 +22,7 @@ interface Section {
   realName: string;
 }
 
-interface Button {
-  name: string;
-  src: string;
-  alt: string;
-  selected: string;
-}
-
-export function Header({ changeNav, nav, toggleColor, colorScheme }: HeaderProps) {
+export function Header({ changeNavFocus, selectedPage, navFocus, toggleColor, colorScheme }: HeaderProps) {
   const [navPlaces, setNavPlaces] = useState<Section[]>(data.sections);
   const [headerPosition, setHeaderPosition] = useState('relative');
 
@@ -80,7 +41,7 @@ export function Header({ changeNav, nav, toggleColor, colorScheme }: HeaderProps
             }} />
             {navPlaces.map(
               (sections: Section) => (
-                <NavButton colorScheme={colorScheme} nav={nav} key={sections.realName} changeNav={changeNav} realName={sections.realName} headerPosition={headerPosition}>{sections.displayName}</NavButton>
+                <NavButton colorScheme={colorScheme} navFocus={navFocus} key={sections.realName} changeNavFocus={changeNavFocus} realName={sections.realName} headerPosition={headerPosition}>{sections.displayName}</NavButton>
               )
             )}
           </ul>

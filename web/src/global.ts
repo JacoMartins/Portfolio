@@ -4,10 +4,6 @@ import InterMedium from './assets/fonts/Inter-Medium.ttf';
 import InterSemiBold from './assets/fonts/Inter-SemiBold.ttf';
 import InterBold from './assets/fonts/Inter-Bold.ttf';
 
-interface Props {
-  colorScheme: string | null;
-}
-
 export const fontFaces = css`
   @font-face {
     font-family: 'Inter';
@@ -123,18 +119,18 @@ export const GlobalStyle = createGlobalStyle`
   /* Track */
   ::-webkit-scrollbar-track {
     display: block;
-    background: ${(props:Props) => props.colorScheme === 'light'? 'var(--back-light)' : 'rgba(0, 0, 0, 0.9)'};
+    background: var(--back-light);
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: ${(props:Props) => props.colorScheme === 'light'? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 3px;
     width: 2px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: ${(props:Props) => props.colorScheme === 'light'? 'rgba(0, 0, 0, 0.3)' : 'rgba(255, 255, 255, 0.3)'};
+    background: rgba(0, 0, 0, 0.3);
   }
 `;

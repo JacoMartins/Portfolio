@@ -1,11 +1,8 @@
 import { ButtonContainer } from './styles';
-import BookYourselfIcon from '../../assets/images/BookYourself.svg';
-import arrowIcon from '../../assets/images/arrow.svg';
-
-import { InstagramLogo, EnvelopeOpen, Phone, CircleWavyCheck, LinkedinLogo, GithubLogo, CaretRight } from 'phosphor-react';
+import { LinkedinLogo, CaretRight } from 'phosphor-react';
 import { ReactNode } from 'react';
 
-interface IconButtonProps {
+interface InformationProps {
   text: string;
   description: string;
   image?: string;
@@ -15,20 +12,13 @@ interface IconButtonProps {
   colorScheme: string | null;
 }
 
-export function IconButton({ text, description, image, link, type, icon, colorScheme }: IconButtonProps) {
-
+export function Information({ text, description, image, link, type, icon, colorScheme }: InformationProps) {
   if (type === 'contact' || type === 'portfolio') {
     return (
       <ButtonContainer type={type} colorScheme={colorScheme} onClick={() => { window.open(link) }}>
         <div>
-          {(image === 'Email' && !icon) && <EnvelopeOpen color='#8522E7' weight="light" size={60} />}
-          {(image === 'Phone' && !icon) && <Phone color='#8522E7' weight="light" size={60} />}
-          {(image === 'Instagram' && !icon) && <InstagramLogo color='#8522E7' weight="light" size={60} />}
-          {(image === 'Github' && !icon) && <GithubLogo color='#8522E7' weight="light" size={60} />}
-          {(image === 'Cert' && !icon) && <CircleWavyCheck color='#8522E7' weight="light" size={60} />}
-          {(image === 'Linkedin' && !icon) && <LinkedinLogo color='#8522E7' weight="light" size={60} />}
-
-
+          {icon && icon}
+          {!icon && image === 'Linkedin' && <LinkedinLogo size={24} weight='regular' color='rgba(0, 0, 0, 0.25)' />}
           <div>
             <h3>{text}</h3>
             <p>{description}</p>

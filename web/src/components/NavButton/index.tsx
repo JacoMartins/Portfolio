@@ -3,18 +3,16 @@ import axios from 'axios';
 import { Li } from './styles';
 
 interface Section {
-  changeNav: (name: string) => void;
   realName: string;
   children: string;
-  nav: string;
+  navFocus: string;
+  changeNavFocus: (userFocus: string) => void;
   headerPosition: string;
   colorScheme: string | null;
 }
 
-export function NavButton({ changeNav, realName, children, nav, headerPosition, colorScheme }: Section) {
-
-  function handleNavButtonClick() {
-    changeNav(realName);
+export function NavButton({ realName, children, navFocus, colorScheme }: Section) {
+  function handleScroll() {
     window.scrollTo(0, document.getElementById(realName)!.offsetTop - document.querySelectorAll('header')[0].offsetHeight)
 
     if (document.querySelectorAll('ul')[0].className === 'ul-show') {
@@ -26,7 +24,11 @@ export function NavButton({ changeNav, realName, children, nav, headerPosition, 
     }
   }
 
+  function handleGoToPage() {
+    window.location.href = `/${realName}`;
+  }
+
   return (
-    <Li name={realName} nav={nav} colorScheme={colorScheme}><a onClick={handleNavButtonClick}>{children}</a></Li>
+    <Li name={realName} navFocus={navFocus} colorScheme={colorScheme} onClick={handleScroll}>{children}</Li>
   )
 }

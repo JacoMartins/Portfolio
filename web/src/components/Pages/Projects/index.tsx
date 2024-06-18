@@ -1,5 +1,5 @@
 import { BookBookmark, Bus } from "phosphor-react";
-import { Button, Container, PageMain, Section, SectionH1, SectionH2 } from "../Home/styles";
+import { Button, Container, PageMain, Section, SectionH1, SectionH2 } from "../../../globalStyles";
 import portmeLogo from '../../assets/images/portme40x.svg';
 
 interface PageType {

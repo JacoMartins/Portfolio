@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "eslint": "^9.5.0",
+    "phosphor-react": "^1.4.1"
+  }
+}
